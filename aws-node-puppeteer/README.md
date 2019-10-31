@@ -48,12 +48,13 @@ plugins:
 
 ## 2. Install Following Dependencies 
 
+- serverless-plugin-chrome
 - superagent 
 - @serverless-chrome/lambda 
 - puppeteer 
 
 ```
- $ npm i superagent @serverless-chrome/lambda puppeteer 
+ $ npm i serverless-plugin-chrome superagent @serverless-chrome/lambda puppeteer 
 ```
 
 ## 3.Exclude Chromium Dist that comes with puppeteer by default
@@ -105,6 +106,7 @@ const {getChrome} = require('./chrome-script')
 - connect it with puppeteer 
 
 ```
+  const chrome = await getChrome()
   const browser = await puppeteer.connect({
     browserWSEndpoint: chrome.endpoint
   });
